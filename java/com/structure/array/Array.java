@@ -28,7 +28,7 @@ public class Array<E> {
      * 添加元素 追加至容器末尾
      * @param element
      */
-    public void add(E element){
+    public void addLast(E element){
         addByIndex(size,element);
     }
 
@@ -87,6 +87,21 @@ public class Array<E> {
         return data[index];
     }
 
+    /**
+     * 获取首位元素
+     * @return
+     */
+    public E getFirst(){
+        return get(0);
+    }
+
+    /**
+     * 获取最后一个元素
+     * @return
+     */
+    public E getLast(){
+        return get(size - 1);
+    }
     /**
      * 修改指定位置的元素值
      * @param index
@@ -175,7 +190,7 @@ public class Array<E> {
      * 获取容器中有多少个元素
      * @return size
      */
-    public int size(){
+    public int getSize(){
         return size;
     }
 
@@ -183,7 +198,7 @@ public class Array<E> {
      * 获取容器容量大小
      * @return
      */
-    public int capacity(){
+    public int getCapacity(){
         return data.length;
     }
 

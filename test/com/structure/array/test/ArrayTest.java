@@ -13,7 +13,7 @@ public class ArrayTest {
     public static void main(String[] args) {
         Array<Integer> arr = new Array();
         for (int i = 0;i < 10 ;i++)
-            arr.add(i);
+            arr.addLast(i);
         System.out.println(arr);
         arr.addFirst(100);
         System.out.println(arr);
@@ -25,7 +25,7 @@ public class ArrayTest {
         arr.removeElement(100);
         System.out.println(arr);
         arr.set(2,100);
-        arr.add(1);
+        arr.addLast(1);
         arr.removeLast();
         arr.removeLast();
         System.out.println(arr);

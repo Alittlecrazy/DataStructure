@@ -37,9 +37,9 @@ public class Student {
 
     public static void main(String[] args) {
         Array<Student> array = new Array<>();
-        array.add(new Student("zhangsan",23));
-        array.add(new Student("lisi",24));
-        array.add(new Student("wangwu",25));
+        array.addLast(new Student("zhangsan",23));
+        array.addLast(new Student("lisi",24));
+        array.addLast(new Student("wangwu",25));
         System.out.println(array);
     }
 }
