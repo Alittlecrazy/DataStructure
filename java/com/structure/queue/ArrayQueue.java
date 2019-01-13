@@ -71,14 +71,14 @@ public class ArrayQueue<E> implements Queue<E>{
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("Queue : Front[");
+        builder.append("Queue : Front [");
         for (int i = 0; i < array.getSize();i++){
             builder.append(array.get(i));
             if (i != array.getSize() - 1){
                 builder.append(",");
             }
         }
-        builder.append("]");
+        builder.append("] tail");
         return builder.toString();
     }
 }
