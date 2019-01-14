@@ -1,4 +1,4 @@
-package com.structure.array.test;
+package com.structure.test;
 
 import com.structure.array.Array;
 
