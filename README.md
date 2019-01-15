@@ -65,3 +65,19 @@
   boolean isEmpty()|O(1)
    
 # 4 链表
+  
+  **实现方式 : Node(e,next)**
+  
+  LinkedList<E>|复杂度
+  :-----:|:----:
+  addLast(e)|O(n)
+  addFirst|O(1)
+  add(index)| O(n/2)=O(n)
+  removeLast|O(n)
+  removeFirst|O(1)
+  remove(index)|O(n/2)=O(n)
+  set(index,e)|O(n)
+  get(index)|O(n)
+  contains(e)|O(n)
+  
+
