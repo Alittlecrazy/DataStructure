@@ -210,6 +210,82 @@ public class BST<E extends Comparable> {
         node.right = removeMax(node.right);
         return node;
     }
+
+    // 删除掉以node为根的二分搜索树中值为e的节点, 递归算法
+    // 返回删除节点后新的二分搜索树的根
+    private Node remove(Node node, E e){
+
+        if( node == null )
+            return null;
+
+        if( e.compareTo(node.e) < 0 ){
+            node.left = remove(node.left , e);
+            return node;
+        }
+        else if(e.compareTo(node.e) > 0 ){
+            node.right = remove(node.right, e);
+            return node;
+        }
+        else{   // e.compareTo(node.e) == 0
+
+            // 待删除节点左子树为空的情况
+            if(node.left == null){
+                Node rightNode = node.right;
+                node.right = null;
+                size --;
+                return rightNode;
+            }
+
+            // 待删除节点右子树为空的情况
+            if(node.right == null){
+                Node leftNode = node.left;
+                node.left = null;
+                size --;
+                return leftNode;
+            }
+
+            // 待删除节点左右子树均不为空的情况
+
+            // 找到比待删除节点大的最小节点, 即待删除节点右子树的最小节点
+            // 用这个节点顶替待删除节点的位置
+            Node successor = minmum(node.right);
+            successor.right = removeMin(node.right);
+            successor.left = node.left;
+
+            node.left = node.right = null;
+
+            return successor;
+        }
+    }
+    @Override
+    public String toString(){
+        StringBuilder res = new StringBuilder();
+        generateBSTString(root, 0, res);
+        return res.toString();
+    }
+
+    // 生成以node为根节点，深度为depth的描述二叉树的字符串
+    private void generateBSTString(Node node, int depth, StringBuilder res){
+
+        if(node == null){
+            res.append(generateDepthString(depth) + "null\n");
+            return;
+        }
+
+        res.append(generateDepthString(depth) + node.e +"\n");
+        generateBSTString(node.left, depth + 1, res);
+        generateBSTString(node.right, depth + 1, res);
+    }
+
+    private String generateDepthString(int depth){
+        StringBuilder res = new StringBuilder();
+        for(int i = 0 ; i < depth ; i ++)
+            res.append("--");
+        return res.toString();
+    }
+    /**
+     * 内部私有节点
+     */
     private class Node{
         public E e;
         public Node left,right;
